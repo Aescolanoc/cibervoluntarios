@@ -1,3 +1,4 @@
+import * as api from "../services/api";
 import { defineStore } from "pinia";
 
 export const useUserFormStore = defineStore({
@@ -11,6 +12,7 @@ export const useUserFormStore = defineStore({
       books: [] as string[],
     },
     step: 1 as number,
+    books: [] as any[],
   }),
   actions: {
     async removeOds(id: number) {
@@ -24,6 +26,16 @@ export const useUserFormStore = defineStore({
     },
     async addOds(id: number) {
       await this.userData.ods.push(id);
+    },
+
+    async getAllBooks() {
+      try {
+        const { data } = await api.getAll();
+        console.log(data);
+        return data;
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 });

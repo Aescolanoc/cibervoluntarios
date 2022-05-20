@@ -4,13 +4,13 @@
   <OdsStep v-if="store.step === 2"></OdsStep>
   <BooksStep v-if="store.step === 3"></BooksStep>
   <ResumeStep v-if="store.step === 4"></ResumeStep>
+  <div v-if="error" class="alert alert-danger" role="alert">
+    {{ errorMessage }}
+  </div>
   <div class="d-grid gap-2 d-md-block">
     <button v-if="store.step != 1" class="btn btn-primary" type="button" @click="prev">Prev</button>
     <button v-if="store.step != 4" class="btn btn-primary" type="button" @click="next">Next</button>
     <button v-if="store.step === 4" class="btn btn-primary" type="button" @click="submit">Validar Formulario</button>
-  </div>
-  <div v-if="error" class="alert alert-danger" role="alert">
-    {{ errorMessage }}
   </div>
 </template>
 
