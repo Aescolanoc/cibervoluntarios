@@ -9,6 +9,9 @@
     <button v-if="store.step != 4" class="btn btn-primary" type="button" @click="next">Next</button>
     <button v-if="store.step === 4" class="btn btn-primary" type="button" @click="submit">Validar Formulario</button>
   </div>
+  <div v-if="error" class="alert alert-danger" role="alert">
+    {{ errorMessage }}
+  </div>
 </template>
 
 <script lang="ts">
@@ -30,13 +33,40 @@ export default defineComponent({
     BooksStep,
     ResumeStep,
   },
+  data() {
+    return {
+      error: false,
+      errorMessage: "",
+    };
+  },
   methods: {
     prev() {
       this.store.step--;
     },
     next() {
-      console.log(this.store.userData);
-      // this.store.step++;
+      if (this.store.step === 1) {
+        if (this.store.userData.name === "" || this.store.userData.lastName === "") {
+          this.errorMessage = "Debe rellenar los campos obligatorios";
+          this.error = true;
+          setTimeout(() => {
+            this.error = false;
+          }, 2000);
+        } else {
+          this.store.step++;
+        }
+      } else if (this.store.step === 2) {
+        if (this.store.userData.ods.length < 3) {
+          this.errorMessage = "Seleccione 3 elementos";
+          this.error = true;
+          setTimeout(() => {
+            this.error = false;
+          }, 2000);
+        } else {
+          this.store.step++;
+        }
+      } else {
+        this.store.step++;
+      }
     },
     submit() {
       console.log(this.store.userData);
