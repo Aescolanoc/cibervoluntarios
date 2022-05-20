@@ -1,5 +1,5 @@
 <template>
-  <div>Paso 3 - Selecciona tus libros favoritos</div>
+  <div>Paso 3 - Selecciona tus libros favoritos (Opcional)</div>
   <Multiselect
     mode="tags"
     v-model="store.userData.books"

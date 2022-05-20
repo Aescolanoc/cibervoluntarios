@@ -50,8 +50,6 @@ export default defineComponent({
     },
 
     getUserBooks() {
-      console.log(this.store.allBooks);
-      console.log(this.store.userData.books);
       return this.store.allBooks.filter((element) => this.store.userData.books.includes(element.id));
     },
   },
