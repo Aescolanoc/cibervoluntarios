@@ -28,7 +28,9 @@
     </div>
 
     <dt class="col-sm-3 text-truncate">Books:</dt>
-    <dd class="col-sm-9">Libros seleccionados</dd>
+    <div v-for="item in getUserBooks()" :key="item.id">
+      <p>{{ item.title }}</p>
+    </div>
   </dl>
 </template>
 
@@ -45,6 +47,12 @@ export default defineComponent({
   methods: {
     getUserOds() {
       return ods.filter((element) => this.store.userData.ods.includes(element.id));
+    },
+
+    getUserBooks() {
+      console.log(this.store.allBooks);
+      console.log(this.store.userData.books);
+      return this.store.allBooks.filter((element) => this.store.userData.books.includes(element.id));
     },
   },
 });

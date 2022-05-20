@@ -1,5 +1,5 @@
 <template>
-  <div>Paso 2</div>
+  <div>Paso 2 - Selecciona 3 Objetivos de desarrollo sostenible</div>
   <div class="ods-wrapper">
     <div
       v-for="item in (data as any)"

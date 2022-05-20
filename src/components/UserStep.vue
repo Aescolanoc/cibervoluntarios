@@ -1,5 +1,5 @@
 <template>
-  <div>Paso 1 - Datos personales</div>
+  <div>Paso 1 - Introduce tu datos personales</div>
   <div class="form-floating mb-3">
     <input type="text" class="form-control w-50" id="name" v-model="store.userData.name" required />
     <label for="name">Nombre</label>

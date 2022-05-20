@@ -12,7 +12,7 @@ export const useUserFormStore = defineStore({
       books: [] as string[],
     },
     step: 1 as number,
-    books: [] as any[],
+    allBooks: [] as any[],
   }),
   actions: {
     async removeOds(id: number) {
@@ -30,9 +30,12 @@ export const useUserFormStore = defineStore({
 
     async getAllBooks() {
       try {
-        const { data } = await api.getAll();
-        console.log(data);
-        return data;
+        if (this.allBooks.length) {
+          return this.allBooks;
+        } else {
+          const { data } = await api.getAll();
+          this.allBooks = data;
+        }
       } catch (error) {
         console.log(error);
       }

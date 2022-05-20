@@ -1,31 +1,44 @@
 <template>
-  <div>Paso 3</div>
-  <ul class="list-group">
-    <li class="list-group-item">
-      <input class="form-check-input me-1" type="checkbox" value="" aria-label="..." />
-      First checkbox
-    </li>
-  </ul>
+  <div>Paso 3 - Selecciona tus libros favoritos</div>
+  <Multiselect
+    mode="tags"
+    v-model="store.userData.books"
+    :searchable="true"
+    :close-on-select="false"
+    :options="store.allBooks"
+    valueProp="id"
+    label="title"
+  />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import { useUserFormStore } from "@/stores/store";
+import Multiselect from "@vueform/multiselect";
 
 export default defineComponent({
   setup() {
     const store = useUserFormStore();
     return { store };
   },
+  components: {
+    Multiselect,
+  },
+  data() {
+    return {
+      value: [],
+    };
+  },
+
   created() {
     this.loadData();
   },
   methods: {
     async loadData() {
-      let data = await this.store.getAllBooks();
+      await this.store.getAllBooks();
     },
   },
 });
 </script>
 
-<style scoped></style>
+<style src="@vueform/multiselect/themes/default.css"></style>
