@@ -4,7 +4,7 @@ export const useUserFormStore = defineStore({
   id: "user-form",
   state: () => ({
     userData: {
-      name: "Pepe" as string,
+      name: "" as string,
       lastName: "" as string,
       comment: "" as string,
       ods: [] as number[],
@@ -13,10 +13,17 @@ export const useUserFormStore = defineStore({
     step: 1 as number,
   }),
   actions: {
-    // saveUserCredentials(data: Object) {
-    //   this.userData.name = data.name;
-    //   this.userData.lastName = data.lastname;
-    //   this.userData.comment = data.comment;
-    // },
+    async removeOds(id: number) {
+      const index = this.userData.ods.findIndex((element: any) => element === id);
+      try {
+        await this.userData.ods.splice(index, 1);
+        return false;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async addOds(id: number) {
+      await this.userData.ods.push(id);
+    },
   },
 });
