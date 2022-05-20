@@ -23,16 +23,6 @@ export default defineComponent({
     const store = useUserFormStore();
     return { store };
   },
-  data() {
-    return {
-      userData: {
-        name: "",
-        lastname: "",
-        comment: "",
-      },
-    };
-  },
-  methods: {},
 });
 </script>
 
