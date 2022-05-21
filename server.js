@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import axios from "axios";
 
-let app = express();
+const app = express();
 
 app.use(cors());
 
@@ -15,5 +15,5 @@ app.use("/books", async (req, res, next) => {
   }
 });
 
-let port = 4500;
+const port = 4500;
 app.listen(port);
