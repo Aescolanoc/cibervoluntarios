@@ -12,8 +12,8 @@
       <BooksStep v-if="store.step === 3"></BooksStep>
       <ResumeStep v-if="store.step === 4 && isSent === false"></ResumeStep>
 
-      <div v-if="isSent" class="w-25 mx-auto m-5">Datos enviados correctamente</div>
-      <div class="w-25 mx-auto">
+      <div v-if="isSent" class="text-center m-5">Datos enviados correctamente</div>
+      <div class="text-center">
         <button v-if="isSent" class="btn btn-primary mx-3" type="button" @click="newForm">
           Enviar otro formulario
         </button>

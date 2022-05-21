@@ -35,10 +35,6 @@ export default defineComponent({
   font-size: 12px;
 }
 
-.missed-info {
-  boder-color: red;
-}
-
 @media (min-width: 700px) {
   .form-user-data div,
   h5 {
