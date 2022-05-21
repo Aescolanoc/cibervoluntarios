@@ -1,5 +1,5 @@
 <template>
-  <div>Paso 2 - Selecciona 3 Objetivos de desarrollo sostenible</div>
+  <h5>Paso 2 de 4 - Selecciona 3 ODS</h5>
   <div class="ods-wrapper">
     <div
       v-for="item in (data as any)"
@@ -14,7 +14,9 @@
       />
     </div>
   </div>
-  <div v-if="error" class="alert alert-danger" role="alert">Sólo se pueden seleccionar 3 elementos</div>
+  <div v-if="error" class="alert alert-danger text-center w-50 mx-auto" role="alert">
+    Sólo se pueden seleccionar 3 elementos
+  </div>
 </template>
 
 <script lang="ts">

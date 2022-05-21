@@ -1,5 +1,6 @@
 <template>
-  <div>Paso 3 - Selecciona tus libros favoritos (Opcional)</div>
+  <h5>Paso 3 de 4 - Selecciona tus libros favoritos</h5>
+
   <Multiselect
     mode="tags"
     v-model="store.userData.books"
@@ -8,6 +9,7 @@
     :options="store.allBooks"
     valueProp="id"
     label="title"
+    class="mb-5"
   />
 </template>
 
