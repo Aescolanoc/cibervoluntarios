@@ -34,3 +34,7 @@
 ```
 
 ---
+
+## Video E2E tests
+
+![Demo](https://raw.githubusercontent.com/Aescolanoc/cibervoluntarios/main/src/assets/img/userForm.spec.ts.gif?token=GHSAT0AAAAAABQIZD744CH7OFVLV5764DSQYUKJT7A)
