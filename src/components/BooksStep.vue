@@ -26,11 +26,6 @@ export default defineComponent({
   components: {
     Multiselect,
   },
-  data() {
-    return {
-      value: [],
-    };
-  },
 
   created() {
     this.loadData();

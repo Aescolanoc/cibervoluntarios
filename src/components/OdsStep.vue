@@ -2,7 +2,7 @@
   <h5>Paso 2 de 4 - Selecciona 3 ODS</h5>
   <div class="ods-wrapper">
     <div
-      v-for="item in (data as any)"
+      v-for="item in data"
       :key="item.id"
       :class="item.selected ? 'ods-wrapper__imgage selected' : 'ods-wrapper__imgage'"
       @click="handlerImage(item.id)"
@@ -23,6 +23,7 @@
 import { defineComponent } from "vue";
 import { useUserFormStore } from "@/stores/store";
 import { ods } from "@/data/data";
+import type Data from "@/data/data";
 
 export default defineComponent({
   setup() {
@@ -31,14 +32,14 @@ export default defineComponent({
   },
   data() {
     return {
-      data: ods as any,
-      error: false,
+      data: ods as Data[],
+      error: false as boolean,
     };
   },
 
   methods: {
-    handlerImage(id: number): any {
-      let newData = this.data.find((element: any) => element.id === id);
+    handlerImage(id: number): void {
+      let newData: any = this.data.find((element: Data) => element.id === id);
       if (newData.selected) {
         this.store.removeOds(id);
         newData.selected = false;

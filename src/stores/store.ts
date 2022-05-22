@@ -1,6 +1,18 @@
 import * as api from "../services/api";
 import { defineStore } from "pinia";
 
+export default interface Books {
+  ["@id"]: string;
+  ["@type"]: string;
+  author: string;
+  description: string;
+  id: string;
+  isbn: string;
+  publicationDate: string;
+  reviews: object[];
+  title: string;
+}
+
 export const useUserFormStore = defineStore({
   id: "user-form",
   state: () => ({
@@ -12,11 +24,11 @@ export const useUserFormStore = defineStore({
       books: [] as string[],
     },
     step: 1 as number,
-    allBooks: [] as any[],
+    allBooks: [] as Books[],
   }),
   actions: {
     async removeOds(id: number) {
-      const index = this.userData.ods.findIndex((element: any) => element === id);
+      const index = this.userData.ods.findIndex((element: number) => element === id);
       try {
         await this.userData.ods.splice(index, 1);
         return false;

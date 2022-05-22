@@ -1,4 +1,10 @@
-export const ods = [
+export default interface Data {
+  id: number;
+  img: string;
+  selected: boolean;
+}
+
+export const ods: Data[] = [
   {
     id: 1,
     img: "S-WEB-Goal-01.png",

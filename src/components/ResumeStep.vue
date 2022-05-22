@@ -36,6 +36,7 @@
 import { defineComponent } from "vue";
 import { useUserFormStore } from "@/stores/store";
 import { ods } from "@/data/data";
+import type Data from "@/data/data";
 
 export default defineComponent({
   setup() {
@@ -43,12 +44,12 @@ export default defineComponent({
     return { store };
   },
   methods: {
-    getUserOds() {
+    getUserOds(): Data[] {
       return ods.filter((element) => this.store.userData.ods.includes(element.id));
     },
 
-    getUserBooks() {
-      return this.store.allBooks.filter((element) => this.store.userData.books.includes(element.id));
+    getUserBooks(): any[] {
+      return this.store.allBooks.filter((element): boolean => this.store.userData.books.includes(element.id));
     },
   },
 });

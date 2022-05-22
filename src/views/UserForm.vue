@@ -54,17 +54,17 @@ export default defineComponent({
   },
   data() {
     return {
-      error: false,
-      errorMessage: "",
-      isSent: false,
+      error: false as boolean,
+      errorMessage: "" as string,
+      isSent: false as boolean,
     };
   },
 
   methods: {
-    prev() {
+    prev(): void {
       this.store.step--;
     },
-    next() {
+    next(): void {
       if (this.store.step === 1) {
         if (this.store.userData.name === "" || this.store.userData.lastName === "") {
           this.errorMessage = "Debe rellenar los campos obligatorios";
@@ -89,12 +89,12 @@ export default defineComponent({
         this.store.step++;
       }
     },
-    submit() {
+    submit(): void {
       this.isSent = true;
       console.log(this.store.userData);
     },
 
-    newForm() {
+    newForm(): void {
       location.reload();
     },
   },
