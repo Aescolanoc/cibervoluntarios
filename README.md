@@ -2,17 +2,17 @@
 
 ## Project Overview
 
-- Vue with Vite, Pinia, Typescript
-- Boostrap5, vueform/multiselect
-- Sever file as proxy to connect to API
+- Vue 3 with Vite, Pinia and Typescript
+- Bootstrap 5, vueform/multiselect
+- Node Express endpoint as a proxy to connect to the books API
 - E2E tests with Cypress
 
 ## Project setup
 
 - Clone the repo
 - Run `npm i` in the project folder
-- Run `npm start` to run proxy
-- Run `npm run dev`
+- Run `npm start` to run the api proxy
+- Run `npm run dev` to run the dev server
 
 ## Project commands
 
